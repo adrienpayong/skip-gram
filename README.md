@@ -44,3 +44,5 @@ Instead of specifying the whole probability distribution across words, the model
 The model generates m negative pairs for each accurate pair, where m is a hyperparameter.
 The Vt of all negative samples is the same as the Vt of the original training pair, but the Vc is generated from an arbitrary noise distribution.
 The model's new goal is to maximize the probability of accurate samples originating from the corpus while minimizing the corpus probability for negative samples
+
+reference: [source](https://blog.cambridgespark.com/tutorial-build-your-own-embedding-and-use-it-in-a-neural-network-e9cde4a81296)
