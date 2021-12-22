@@ -17,8 +17,6 @@ In this lesson, we'll look at Skip-gram, one of the most prominent neural word-e
 ## Skip gram
 The goal of skip-gram is to forecast the contexts of a given target-word.
 The contexts are the target's immediate neighbors, and they are obtained via a window of variable size n — by collecting n words to the target's left and n words to its right.The model is trained using data pairs (Vt, Vc), where V is the vocabulary and t, c are indices of a target-word and one of its context-words.
-The goal of the original Skip-gram is to maximize P(Vc|Vt), which is the probability of Vc being predicted as Vt's context for all training pairings.
-
-If we define the set of all training pairings as D, we can represent this goal as maximising the expression: 
+The goal of the original Skip-gram is to maximize P(Vc|Vt), which is the probability of Vc being predicted as Vt's context for all training pairings. If we define the set of all training pairings as D, we can represent this goal as maximising the expression: 
 ![source](https://github.com/adrienpayong/skip-gram/blob/main/Capture1.PNG)
 
