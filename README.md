@@ -28,3 +28,8 @@ Once the model has been trained, the input-embedding matrix is often employed as
 It is critical to understand this difference, as well as the fact that in Skip-gram, each word is connected with two unique representations.
 Now, if we define uc as the measure of word proximity, E as the matrix containing input-embeddings, and O as the matrix holding output-embeddings, we get: 
 ![source](https://github.com/adrienpayong/skip-gram/blob/main/Capture2.PNG)
+## Architecture
+Skip-gram is a basic neural network with just one hidden layer in terms of architecture.
+The network's input is a one-hot encoded vector representation of a target-word, with all dimensions set to zero except the dimension corresponding to the target-word.The output is a probability distribution over all words in the vocabulary that determines the possibility of a word being chosen as the context for the input word: 
+![source](https://github.com/adrienpayong/skip-gram/blob/main/Capture4.PNG)
+![source](https://github.com/adrienpayong/skip-gram/blob/main/Capture5.PNG)
