@@ -33,3 +33,14 @@ Skip-gram is a basic neural network with just one hidden layer in terms of archi
 The network's input is a one-hot encoded vector representation of a target-word, with all dimensions set to zero except the dimension corresponding to the target-word.The output is a probability distribution over all words in the vocabulary that determines the possibility of a word being chosen as the context for the input word: 
 ![source](https://github.com/adrienpayong/skip-gram/blob/main/Capture4.PNG)
 ![source](https://github.com/adrienpayong/skip-gram/blob/main/Capture5.PNG)
+## Negative-Sampling
+
+However, there is a problem with Skip-original gram's softmax objective: it is very computationally costly since it involves scanning through the output-embeddings of all words in the vocabulary in order to compute the sum from the denominator.
+And such vocabularies generally include hundreds of thousands of words.
+Because of this inefficiency, most solutions use a negative-sampling goal, which recasts the issue as a collection of separate binary classification jobs.
+
+
+Instead of specifying the whole probability distribution across words, the model learns to distinguish between the correct, corpus-retrieved training pairings and the wrong, randomly produced pairs.
+The model generates m negative pairs for each accurate pair, where m is a hyperparameter.
+The Vt of all negative samples is the same as the Vt of the original training pair, but the Vc is generated from an arbitrary noise distribution.
+The model's new goal is to maximize the probability of accurate samples originating from the corpus while minimizing the corpus probability for negative samples
