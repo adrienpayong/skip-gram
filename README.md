@@ -17,6 +17,14 @@ In this lesson, we'll look at Skip-gram, one of the most prominent neural word-e
 ## Skip gram
 The goal of skip-gram is to forecast the contexts of a given target-word.
 The contexts are the target's immediate neighbors, and they are obtained via a window of variable size n — by collecting n words to the target's left and n words to its right.The model is trained using data pairs (Vt, Vc), where V is the vocabulary and t, c are indices of a target-word and one of its context-words.
-The goal of the original Skip-gram is to maximize P(Vc|Vt), which is the probability of Vc being predicted as Vt's context for all training pairings. If we define the set of all training pairings as D, we can represent this goal as maximising the expression: 
-![source](https://github.com/adrienpayong/skip-gram/blob/main/Capture1.PNG)
+The goal of the original Skip-gram is to maximize P(Vc|Vt), which is the probability of Vc being predicted as Vt's context for all training pairings. 
 
+If we define the set of all training pairings as D, we can represent this goal as maximising the expression: 
+![source](https://github.com/adrienpayong/skip-gram/blob/main/Capture1.PNG)
+We'll need a way to measure the proximity of the target-word Vt and the context-word Vc in order to compute P(Vc|Vt).
+This proximity is calculated in Skip-gram by taking the dot product of the target's input-embedding and the context's output-embedding.
+The distinction between input-embeddings and output-embeddings is that the former represent words when they serve as a target, whilst the latter operate as contexts for other words.
+Once the model has been trained, the input-embedding matrix is often employed as the final word embeddings in downstream tasks.
+It is critical to understand this difference, as well as the fact that in Skip-gram, each word is connected with two unique representations.
+Now, if we define uc as the measure of word proximity, E as the matrix containing input-embeddings, and O as the matrix holding output-embeddings, we get: 
+![source](https://github.com/adrienpayong/skip-gram/blob/main/Capture2.PNG)
